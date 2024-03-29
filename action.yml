@@ -13,10 +13,16 @@ inputs:
     description: The GitHub token to use
     required: true
 
+outputs:
+  summary:
+    description: How many caches were cleared and the total size of the caches cleared.
+    value: ${{ steps.clear-step.outputs.result }}
+
 runs:
   using: 'composite'
   steps:
     - name: Clear cache
+      id: clear-step
       uses: actions/github-script@v7
       with:
         github-token: ${{ inputs.github-token }}
@@ -62,4 +68,3 @@ runs:
           }
           console.log(summary);
           return summary;
-          

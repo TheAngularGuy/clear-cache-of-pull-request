@@ -26,8 +26,11 @@ jobs:
 | github-token | The GitHub token to use             | Yes      | none                                                      |
 | branch       | The branch to delete the cache from | No       | `refs/pull/${{ github.event.pull_request.number }}/merge` |
 
-> [!TIP]
-> To delete all chaches set the `cache-prefix` input to an empty string `''`.
+## Outputs
+
+| Name    | Description                                                           | Format |
+|---------|-----------------------------------------------------------------------|--------|
+| summary | How many caches were cleared and the total size of the caches cleared | string |
 
 ## Permissions
 
