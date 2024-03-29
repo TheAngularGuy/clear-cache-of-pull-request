@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clear caches
-        uses: theAngularGuy/clear-cache-of-pull-request@vx.x.x
+        uses: theAngularGuy/clear-cache-of-pull-request@vX.X.X
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```

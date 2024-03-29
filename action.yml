@@ -52,4 +52,14 @@ runs:
             totalSizeCleared += cache.size_in_bytes;
           }
           await Promise.all(calls);
-          console.log(`Total size cleared: ${ bytesToHumanReadable(totalSizeCleared) } 🚮`);
+          let summary;
+          if (caches.length === 0) {
+            summary = `No cache found for branch ${ inputs.branch }`;
+          } else if (calls.length === 1) {
+            summary = `Cleared 1 cache, total size: ${ bytesToHumanReadable(totalSizeCleared) } 🚮`;
+          } else {
+            summary = `Cleared ${ caches.length } caches, total size: ${ bytesToHumanReadable(totalSizeCleared) } 🚮`;
+          }
+          console.log(summary);
+          return summary;
+          
