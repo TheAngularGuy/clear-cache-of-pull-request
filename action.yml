@@ -20,6 +20,7 @@ runs:
       uses: actions/github-script@v7
       with:
         github-token: ${{ inputs.github-token }}
+        result-encoding: string
         script: |
           function bytesToHumanReadable(bytes) {
             const kilobytes = bytes / 1024;
