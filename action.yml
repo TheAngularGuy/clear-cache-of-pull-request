@@ -1,14 +1,14 @@
-name: Clear cache by prefix
-description: Delete all caches whose keys starts with a specific prefix.
+name: Clear cache of pull request
+description: A GitHub action to clear the cache of a pull request.
 
 branding:
   icon: archive
   color: purple
 
 inputs:
-  cache-prefix:
-    description: The prefix of the cache keys to delete
-    required: true
+  branch:
+    description: The branch to delete the cache from
+    default: refs/pull/${{ github.event.pull_request.number }}/merge
   github-token:
     description: The GitHub token to use
     required: true
@@ -34,19 +34,21 @@ runs:
           const response = await github.rest.actions.getActionsCacheList({
             owner: context.repo.owner,
             repo: context.repo.repo,
+            ref: '${{ inputs.branch }}',
           });
           let totalSizeCleared = 0;
           const caches = response.data.actions_caches;
+          const calls = [];
           for (const cache of caches) {
             const key = cache.key;
-            if (key.startsWith('${{ inputs.cache-prefix }}')) {
-              const deleteResponse = await github.rest.actions.deleteActionsCacheByKey({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                key,
-              });
-              console.log(`Deleted cache with key: ${ key }, size: ${ cache.size_in_bytes }`);
-              totalSizeCleared += cache.size_in_bytes;
-            }
+            const call = github.rest.actions.deleteActionsCacheByKey({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              key,
+            });
+            calls.push(call);
+            console.log(`Will deleted cache with key: ${ key }, size: ${ cache.size_in_bytes }`);
+            totalSizeCleared += cache.size_in_bytes;
           }
+          await Promise.all(calls);
           console.log(`Total size cleared: ${ bytesToHumanReadable(totalSizeCleared) } 🚮`);
