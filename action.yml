@@ -60,7 +60,7 @@ runs:
           await Promise.all(calls);
           let summary;
           if (caches.length === 0) {
-            summary = `No cache found for branch ${ inputs.branch }`;
+            summary = 'No cache found for branch ${{ inputs.branch }}';
           } else if (calls.length === 1) {
             summary = `Cleared 1 cache, total size: ${ bytesToHumanReadable(totalSizeCleared) } 🚮`;
           } else {
