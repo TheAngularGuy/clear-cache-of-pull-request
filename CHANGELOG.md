@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/TheAngularGuy/clear-cache-of-pull-request/compare/v1.2.1...v1.2.2) (2024-03-29)
+
+
+### Other
+
+* summary output ([#8](https://github.com/TheAngularGuy/clear-cache-of-pull-request/issues/8)) ([aab2d6b](https://github.com/TheAngularGuy/clear-cache-of-pull-request/commit/aab2d6b4a194fd92f468f7623d856354d68a643f))
+
 ## [1.2.1](https://github.com/TheAngularGuy/clear-cache-of-pull-request/compare/v1.2.0...v1.2.1) (2024-03-29)
 
 
