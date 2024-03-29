@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/TheAngularGuy/clear-cache-of-pull-request/compare/v1.1.1...v1.2.0) (2024-03-29)
+
+
+### Features
+
+* better output encoding ([#4](https://github.com/TheAngularGuy/clear-cache-of-pull-request/issues/4)) ([b72cfc1](https://github.com/TheAngularGuy/clear-cache-of-pull-request/commit/b72cfc1f367dff349b2d5df4eced712978e220a6))
+
 ## [1.1.1](https://github.com/TheAngularGuy/clear-cache-of-pull-request/compare/v1.1.0...v1.1.1) (2024-03-29)
 
 
