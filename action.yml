@@ -54,7 +54,7 @@ runs:
               key,
             });
             calls.push(call);
-            console.log(`Will deleted cache with key: ${ key }, size: ${ cache.size_in_bytes }`);
+            console.log(`Will delete cache with key: ${ key }, size: ${ cache.size_in_bytes }`);
             totalSizeCleared += cache.size_in_bytes;
           }
           await Promise.all(calls);
